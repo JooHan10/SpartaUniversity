@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-.cont_top {
+.header {
     width: 100%;
     height: 120px;
     background-color: rgba(220, 20, 60, 1);
@@ -22,74 +22,43 @@
     line-height: 70px;
 }
 
-.cont_middle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px auto;
-    width: 80%;
-    height: 500px;
-    background-color: rgba(220, 220, 220, 1);
+.spartatext {
+    font-size: 50px;
 }
 
-.main_left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-    text-align: center;
-    font-size: 25px;
-}
-
-.main_bar {
-    height: 100%;
-    border: 1px solid rgba(240, 240, 240, 1); 
-}
-
-.main_right {
-    width: 50%;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.log_box {
-    height: 170px;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-    background-color: rgba(240, 240, 240, 1);
-}
-
-.log_box_top {
-    font-size: 25px;
-}
-
-.log_box_middle {
-    display: flex;
-    justify-content: space-around;
+.loginbox {
+    background-color: lightgray;
     width: 250px;
+    height: 200px;
+    
+    margin-left: 70%;
 }
 
-.input_box {
-    width: 120px;
+.wrap {
+    
 }
 
-.input_box > input {
-    width: 100%;
-    margin: 10px 0px;
+.box_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 10%;
+}
+
+.box_input {
+    padding: 0px 0px 0px 10%;
+
+    float: left;
 }
 
 .button_box {
-    width: 70px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 80px;
+    height: 90px;
+
+    float: left;
+    padding-left: 15px;
 }
 
 .button_box > button {
