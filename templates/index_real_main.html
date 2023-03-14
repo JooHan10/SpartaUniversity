@@ -1,60 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/main.css">
     <title>스파르타대학교
         <img src="">
     </title>
-    <style>
-        .header {
-            background-color: #e8344e;
-            height: 150px;     
-
-            font-size: 40px;
-            color: white;
-        }
-        .spartauni {
-            margin-left: 20px;
-        }
-        .spartatext {
-            background-color: skyblue;
-            width: 100%;
-            height: 600px;
-
-            float: left;
-        }
-        .loginbox {
-            background-color: white;
-            width: 300px;
-            height: 300px;
-
-            margin-left: 70%;
-        }
-        .btn {
-            width: 70px;
-            height: 70px;
-
-            background-color: white;
-        }
-    </style>
 </head>
+
 <body>
     <div class="header">
-        <h1 class="spartauni">스파르타대학교</h1>
+        <div class="logo">스파르타대학교</div>
     </div>
     <div class="wrap">
         <div class="spartatext">
             <p>소개문구</p>
-        <div class="loginbox">
-            <h3>수강신청</h3>
-            <p>학번 : <input type="text"></p>
-            <p>암호 : <input type="text"></p>
-            <button onclick="window.open('index_detail_1.html')">로그인
-            </button>
         </div>
+        <div class="loginbox">
+            <div class="wrap">
+                <div class="box_text">수강신청</div>
+                <br>
+                <div class="box_input">
+                    <input type="text" , size="15px">
+                    <br>
+                    <input type="password" , size="15px">
+                </div>
+                <div class="btn">
+                    <section class="button_box">
+                        <button onclick="location.href=('index_detail_1.html')">
+                            바로가기</button>
+                    </section>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
