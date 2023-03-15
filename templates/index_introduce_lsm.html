@@ -32,16 +32,19 @@
 
     .titles {
       width: 100%;
-      height: 150px;
-
-      background-color: rgba(237, 96, 96, 1);
-
-      color: white;
-
+      height: 120px;
+      background-color: rgba(220, 20, 60, 1);
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-left: 100px;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 70px;
     }
 
     .itduce {
@@ -60,13 +63,19 @@
       text-align: center;
     }
 
+    .card-img-top {
+      text-align: center;
+      width: 18rem;
+    }
+
     .comments {
       display: inline-block;
-      background-color: beige;
-      margin: 10px 0px 50px auto;
-      width: 73%;
+      margin: 20px auto 20px 100px;
       height: 400px;
-      padding-left: 10px;
+      padding-left: 50px;
+      width: 70%;
+      background-image: url(../static/flower-ga1523848f_1920.jpg);
+      background-size: cover;
     }
 
     .rv {
@@ -148,15 +157,15 @@
 
 <body>
   <div class="titles">
-    <h1>스파르타대학교</h1>
+    <div class="logo">스파르타대학교</div>
 
   </div>
   <div class="itduce">
-    <div>과목 소개</div>
+    <div>소개</div>
   </div>
   <div>
     <div class="profile">
-      <img src="../static/LSM.png" class="card-img-top" alt="..." width="auto">
+      <img src="../static/LSM.png" class="card-img-top" alt="...">
     </div>
     <div class="comments">
       <p><b>
@@ -171,7 +180,6 @@
       <p>원래 저어언혀 다른 분야를 전공했다가 새롭게 코딩에 도전하는 비전공자입니다.</P>
       <p>영화와 소설을 좋아합니다.</p>
       <p>열심히 하겠습니다! 우리 조, 5기 모두 파이팅!!</P>
-
     </div>
   </div>
   <div class="mypost" id="post-box">
@@ -201,37 +209,37 @@
     <div class="revs">
       <b1 class="rev">
         <tbody id="order-box">
-          <p>
-            <td>과제가 별로 없어요.</td>
-          </p>
-          <p>
-            <td>⭐⭐⭐⭐⭐</td>
-          </p>
-          <footer class="blockquote-footer">
-            <td>s2min</td>
-          </footer>
-      </b1>
-      <b2>
-        <p>
-          <td>지루해요.</td>
-        </p>
-        <p>
-          <td>⭐⭐⭐</td>
-        </p>
-        <footer class="blockquote-footer">
-          <td>eunnsu</td>
-        </footer>
-      </b2>
-      <div>
-        <b2>
-          <p>열심히 해요.</p>
-          <p>⭐⭐⭐⭐</p>
-          <footer class="blockquote-footer">lee3883</footer>
-          </tbody>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">닉네임</th>
+                <th scope="col">후기</th>
+                <th scope="col">별점</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">s2min</th>
+                <td>코딩을 잘 하고 싶습니다!</td>
+                <td>⭐⭐⭐⭐⭐</td>
+              </tr>
+              <tr>
+                <th scope="row">arthur</th>
+                <td>열심히 합니다.</td>
+                <td>⭐⭐⭐⭐</td>
+              </tr>
+              <tr>
+                <th scope="row">abdbj</th>
+                <td>소설 추천해주세요!</td>
+                <td>⭐⭐⭐⭐⭐</td>
+              </tr>
+            </tbody>
+          </table>
+        </tbody>
         </b2>
 
-      </div>
     </div>
+  </div>
 </body>
 <script>
   $(document).ready(function () {
@@ -261,18 +269,16 @@
       let rows = data['comments']
       rows.forEach((a) => {
         let name = a['name']
-        let star = a['star']
         let comment = a['comment']
+        let star = a['star']
 
-        let temp_html = `<p>
-            <td>${comment}</td>
-          </p>
-          <p>
-            <td>${star}}</td>
-          </p>
-          <footer class="blockquote-footer">
-            <td>${name}</td>
-          </footer>`
+        let star_image = '⭐'.repeat(star)
+
+        let temp_html = `<tr>
+                <th scope="col">${name}</th>
+                <th scope="col">${comment}</th>
+                <th scope="col">${star}</th>
+              </tr>`
         $('#order-box').append(temp_html)
       })
     })
