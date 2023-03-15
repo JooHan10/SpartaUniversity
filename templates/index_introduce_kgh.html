@@ -5,13 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- <link rel="stylesheet" href="/static/detail_1.css"> -->
+  <!-- <link rel="stylesheet" href="/static/introduce_kgh.css"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>  
 
   <title>나의 소개</title>
 
@@ -25,6 +26,12 @@
 
     * {
       font-family: 'TheJamsil5Bold', sans-serif;
+    }
+
+    body {
+      background-image: url('/static/backimage.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;               
     }
 
     .cont_top {
@@ -44,7 +51,7 @@
         line-height: 75px;
     }
 
-    .cont_middle {
+    .cont_middle {     
         display: flex;
         flex-flow: column;
         justify-content: space-between;
@@ -76,7 +83,7 @@
         align-items: center;
         justify-content: space-between;
         padding-top: 5px;
-        background-color: rgba(255, 255, 255, 1);
+        background-color: transparent;
     }
 
     .main_middle>.d-flex {
@@ -109,10 +116,6 @@
         border-radius: 5%;
     }
 
-    /* .rev {
-        margin: 50px 0px 0px 100px;
-    } */
-
     .mypost {
         width: 90%;
         max-width: 500px;
@@ -136,7 +139,20 @@
     .mybtns > button {
       margin-left: 7.5px;
       margin-right: 7.5px;
-    }    
+    } 
+
+    .rv > button {
+      margin-left: 7.5px;
+      margin-right: 7.5px;
+    } 
+    
+    .apple {
+      cursor: pointer;
+    }
+
+    .heart-bt {
+      cursor: pointer;
+    }
 
   </style>
 </head>
@@ -171,9 +187,9 @@
               요즘 관심사는 봄을 즐기기 위해<br/>주말마다 꽃놀이를 다니고 있습니다<br/>
               양산 순매원 갔다가 차 막혀 죽는 줄~<br/>그리고 '올팜' 사과나무를 키우고 있는데<br/>얼른 배송 오면 좋겠어요!!<br/>
               5기 여러분 화이팅b<br/>우리 조 화이팅🤍
-              <img src="/static/apple.jpg" class="apple" style="float: right; width:120px; border-radius: 10px;">
-            </p><br/>
-            <p class="card-text"><small>TMI : 초보 블로거임</small><br/><br/>
+              <img src="/static/apple.jpg" class="apple" onclick="apple()" style="float: right; width:120px; border-radius: 10px;">
+            </p>
+            <p class="card-text"><small>TMI : 초보 블로거임</small><br/>눌러보세요👉<br/><br/>
               <button onclick="window.open('https://blog.naver.com/mykgh6514')" type="button" class="btn btn-outline-light">Blog</button>
             </p>
           </div>
@@ -182,7 +198,8 @@
     </section>
     <section class="cont_bottom">
       <div class="rv">
-        <button onclick="open_box()" type="button" class="btn btn-outline-dark" style="margin-bottom: 15px;">후기 남기기</button>
+        <button onclick="open_box()" type="button" class="btn btn-outline-dark" style="margin-bottom: 15px;">후기 남기기</button>        
+        <button onclick="heart_box()" type="button" class="btn btn-outline-dark" style="margin-bottom: 15px;">하트 남기기 <img onclick="changeImg()" id="imgheart" class="heart-bt" src="/static/favorite_border.svg" /></button>
       </div>
       <div class="mypost" id="post-box">          
         <div class="form-floating mb-3">
@@ -210,7 +227,7 @@
         </div>
       </div>    
       <div id="cards-box" class="revs">             
-      </div>
+      </div>  
     </section>
   </div>
 </body>
@@ -224,7 +241,7 @@
   function listing() {
     $.ajax({
       type: 'GET',
-      url: '/comment',
+      url: '/comment1',
       data: {},
       success: function (response) {
         let rows = response['comments']
@@ -262,7 +279,7 @@
 
     $.ajax({
       type: 'POST',
-      url: '/comment',
+      url: '/comment1',
       data: { name_give: name, star_give: star, comment_give: comment },
       success: function (response) {
         alert(response['msg'])
@@ -277,6 +294,28 @@
 
   function close_box() {
     $('#post-box').hide()
+  }
+
+  function apple() {
+    swal("같이 할래?", "https://alwayzshop.page.link/BM6rGVb8g8yyVP5L6");
+  }
+
+
+  //클릭할 때마다 하트 이미지 바뀌기
+  var prevImgUrl = document.getElementById("imgheart").src; //이전 하트 이미지 변수에 저장
+  var prevBgUrl = document.body.style.backgroundImage; //이전 배경 이미지 변수에 저장
+
+  function heart_box() {
+    var heartImg = document.getElementById("imgheart");
+    if (heartImg.src.indexOf("/static/favorite.svg") != -1) {
+      heartImg.src = prevImgUrl;
+      document.body.style.backgroundImage = prevBgUrl;
+    } else {
+      prevImgUrl = heartImg.src;
+      prevBgUrl = document.body.style.backgroundImage;
+      heartImg.src = "/static/favorite.svg";
+      document.body.style.backgroundImage = "url('/static/backimage.jpg')";
+    }
   }
 </script>
 
