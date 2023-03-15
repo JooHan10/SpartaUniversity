@@ -15,10 +15,30 @@ def home():
 def detail():
     return render_template('index_detail_1.html')
 
-#소개페이지
+#소개페이지1
 @app.route('/intro1')
 def intro1():
-    return render_template('index-introduce.html')
+    return render_template('index_introduce_kgh.html')
+
+#소개페이지2
+@app.route('/intro2')
+def intro2():
+    return render_template('index-introduce_mdh.html')
+
+#소개페이지3
+@app.route('/intro3')
+def intro3():
+    return render_template('index_introduce_lsm.html')
+
+#소개페이지4
+@app.route('/intro4')
+def intro4():
+    return render_template('index_introduce_ljh.html')
+
+#소개페이지5
+@app.route('/intro5')
+def intro5():
+    return render_template('index_introduce_hsy.html')
 
 #후기 저장하기
 @app.route("/comment", methods=["POST"])
@@ -26,9 +46,6 @@ def comment_post():
     name_receive = request.form['name_give']
     star_receive = request.form['star_give']
     comment_receive = request.form['comment_give']
-
-    num_receive = list(db.spartauniversity.find({}, {'_id': False}))
-    count = len(num_receive)+1
 
     #빈칸이 있을 때
     if name_receive == '':
@@ -38,8 +55,7 @@ def comment_post():
     if comment_receive == '':
         return jsonify({'msg':'후기를 입력해주세요!'})
 
-    doc = {
-        'num': count,
+    doc = {        
         'name': name_receive,
         'star': star_receive,
         'comment': comment_receive
@@ -52,7 +68,7 @@ def comment_post():
 @app.route("/comment", methods=["GET"])
 def comment_get():
     comment_list = list(db.spartauniversity.find({}, {'_id': False}))
-
+    
     return jsonify({'comments':comment_list})
 
 if __name__ == '__main__':
