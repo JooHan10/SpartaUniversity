@@ -18,130 +18,132 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
     rel="stylesheet" />
-    <style>
-      @font-face {
-        font-family: 'TheJamsil5Bold';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-        font-weight: 700;
-        font-style: normal;
-      }
-  
-      * {
-        font-family: 'TheJamsil5Bold', sans-serif;
-      }
-  
-      .cont_top {
-          width: 100%;
-          height: 120px;
-          background-color: rgba(220, 20, 60, 1);
-          display: flex;
-          justify-content: flex-start;
-          padding: 20px;
-      }
-  
-      .logo {
-          color: white;
-          font-size: 30px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 75px;
-      }
-  
-      .cont_middle {
-          display: flex;
-          flex-flow: column;
-          justify-content: space-between;
-          align-items: center;
-          margin: 0px auto;
-          width: 90%;
-          height: 100%;
-      }
-  
-      .main_top {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-          height: 50px;
-          text-align: center;
-          font-size: 17px;
-          background-color: rgba(240, 240, 240, 1);
-      } 
-      
-      .main_top > p {
-          margin-top: 15px;
-          margin-left: 15px;
-      }
-  
-      .main_middle {
-          display: flex;
-          flex-flow: column;
-          align-items: center;
-          justify-content: space-between;
-          padding-top: 5px;
-          background-color: rgba(255, 255, 255, 1);
-      }
-  
-      .main_middle>.d-flex {
-          margin-top: 30px;
-      }
-  
-      .main_middle>.d-flex>.card {
-          margin-right: 20px;
-      }
-  
-      .cont_bottom {             
-          display: flex;
-          flex-flow: column;
-          align-items: center;
-          justify-content: space-between;
-          margin: auto;
-          width: 90%;
-          max-width: 700px;     
-      }  
-  
-      .txtar {
-          margin-left: 100px;
-          margin-right: 100px;
-      }
-  
-      .btn_rv {
-          background-color: black;
-          color: white;
-          margin-left: 100px;
-          border-radius: 5%;
-      }
-  
-      /* .rev {
-          margin: 50px 0px 0px 100px;
-      } */
-  
-      .mypost {
-          width: 90%;
-          max-width: 500px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          margin-bottom: 30px;
-      }
-  
-      .mypost>button {
-          margin-bottom: 15px;
-      }
-  
-      .mybtns {
-          margin-top: 15px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-      }
-  
-      .mybtns > button {
-        margin-left: 7.5px;
-        margin-right: 7.5px;
-      }    
-  
-    </style>
+  <style>
+    @font-face {
+      font-family: 'TheJamsil3Bold';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    * {
+      font-family: 'TheJamsil5Bold', sans-serif;
+    }
+
+    .titles {
+      width: 100%;
+      height: 150px;
+
+      background-color: rgba(237, 96, 96, 1);
+
+      color: white;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 100px;
+    }
+
+    .itduce {
+      background-color: rgba(239, 245, 255, 1);
+      margin-left: 100px;
+      font-size: 20px;
+      padding: 10px 0px 10px 15px;
+    }
+
+    .profile {
+      margin-left: 100px;
+      margin-top: 10px;
+      background-color: white;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+    }
+
+    .comments {
+      display: inline-block;
+      background-color: beige;
+      margin: 10px 0px 50px auto;
+      width: 73%;
+      height: 400px;
+      padding-left: 10px;
+    }
+
+    .rv {
+      margin-top: 20px;
+      margin-left: 100px;
+      margin-bottom: 10px;
+    }
+
+    .txtar {
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+
+    .btn_rv {
+      background-color: black;
+      color: white;
+      margin-left: 100px;
+      border-radius: 5%;
+    }
+
+
+
+    .rev {
+      margin: 50px 0px 0px 100px;
+    }
+
+    .mypost {
+      margin: 10px 0px 0px 100px;
+      width: 90%;
+    }
+
+    .mybtns {
+
+      margin-top: 15px;
+    }
+
+    .button_blog {
+      background-color: #ffed86;
+      border: 0 solid #E5E7EB;
+      box-sizing: border-box;
+      color: #000000;
+      display: flex;
+      font-size: 1rem;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1.75rem;
+      padding: .75rem 1.65rem;
+      position: relative;
+      text-align: center;
+      text-decoration: none #000000 solid;
+      max-width: 150px;
+      position: relative;
+      cursor: pointer;
+      transform: rotate(-2deg);
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .button_blog:focus {
+      outline: 0;
+    }
+
+    .button_blog:after {
+      content: '';
+      position: absolute;
+      border: 1px solid #000000;
+      bottom: 4px;
+      left: 4px;
+      width: calc(100% - 1px);
+      height: calc(100% - 1px);
+    }
+
+    .button_blog:hover:after {
+      bottom: 2px;
+      left: 2px;
+    }
+  </style>
 </head>
 
 <body>
@@ -154,23 +156,24 @@
   </div>
   <div>
     <div class="profile">
-      <img src="..\profile_image\LSM.png">
+      <img src="../static/LSM.png" class="card-img-top" alt="..." width="auto">
     </div>
     <div class="comments">
       <p><b>
-          <h3>이승민</h3>
+          <h4>이승민</h4>
         </b></p>
-      <p><img src="..\profile_image\line.png"></p>
-      <p><b>개발일지</b> <a href="https://msmscoding.tistory.com/">https://msmscoding.tistory.com/</a></p>
-      <p><b>이메일</b> inheth2@gmail.com</p>
+      <a href="https://msmscoding.tistory.com/" target="_blink">
+        <p class="button_blog">개발일지</p>
+      </a>
+      <p>inheth2@gmail.com</p>
+      <p><img src="../static/line.png" width="100"></p>
       <p>영어 외에도 일본어, 독일어 등에 관심이 많습니다.</P>
-      <p>INFP입니다. 내성적이지만 정이 많고 타인을 배려하려고 노력합니다.</P>
-      <p>비전공자이지만 열심히 하겠습니다!</P>
+      <p>원래 저어언혀 다른 분야를 전공했다가 새롭게 코딩에 도전하는 비전공자입니다.</P>
+      <p>영화와 소설을 좋아합니다.</p>
+      <p>열심히 하겠습니다! 우리 조, 5기 모두 파이팅!!</P>
 
     </div>
   </div>
-  <button class="rv" onclick="open_box()">
-    후기 남기기</button></button>
   <div class="mypost" id="post-box">
     <div class="form-floating mb-3">
       <input id="name" type="text" class="form-control" placeholder="name@example.com">
@@ -193,34 +196,47 @@
     </div>
     <div class="mybtns">
       <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
-      <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
     </div>
 
     <div class="revs">
       <b1 class="rev">
-        <p><td>과제가 별로 없어요.</td></p>
-        <p><td>⭐⭐⭐⭐⭐</td></p>
-        <footer class="blockquote-footer"><td>s2min</td></footer>
+        <tbody id="order-box">
+          <p>
+            <td>과제가 별로 없어요.</td>
+          </p>
+          <p>
+            <td>⭐⭐⭐⭐⭐</td>
+          </p>
+          <footer class="blockquote-footer">
+            <td>s2min</td>
+          </footer>
       </b1>
       <b2>
-        <p><td>지루해요.</td></p>
-        <p><td>⭐⭐⭐</td></p>
-        <footer class="blockquote-footer"><td>eunnsu</td></footer>
+        <p>
+          <td>지루해요.</td>
+        </p>
+        <p>
+          <td>⭐⭐⭐</td>
+        </p>
+        <footer class="blockquote-footer">
+          <td>eunnsu</td>
+        </footer>
       </b2>
       <div>
         <b2>
           <p>열심히 해요.</p>
           <p>⭐⭐⭐⭐</p>
           <footer class="blockquote-footer">lee3883</footer>
+          </tbody>
         </b2>
-        
+
       </div>
     </div>
 </body>
 <script>
   $(document).ready(function () {
-    set_temp();
-    show_comment();
+    listing();
+    $('#post-box').hide()
   });
 
   function posting() {
@@ -236,11 +252,29 @@
     fetch('/guestbook', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
       console.log(data);
       alert(data["msg"]);
+      window.location.reload()
     });
   }
   function show_comment() {
     fetch('/guestbook').then((res) => res.json()).then((data) => {
       alert(data["msg"])
+      let rows = data['comments']
+      rows.forEach((a) => {
+        let name = a['name']
+        let star = a['star']
+        let comment = a['comment']
+
+        let temp_html = `<p>
+            <td>${comment}</td>
+          </p>
+          <p>
+            <td>${star}}</td>
+          </p>
+          <footer class="blockquote-footer">
+            <td>${name}</td>
+          </footer>`
+        $('#order-box').append(temp_html)
+      })
     })
   }
   function open_box() {
