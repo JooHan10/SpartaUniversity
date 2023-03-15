@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/static/introduce.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <title>스파르타대학교 - 과목 소개</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+    <style>
+      @font-face {
+        font-family: 'TheJamsil5Bold';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+      }
+  
+      * {
+        font-family: 'TheJamsil5Bold', sans-serif;
+      }
+  
+      .cont_top {
+          width: 100%;
+          height: 120px;
+          background-color: rgba(220, 20, 60, 1);
+          display: flex;
+          justify-content: flex-start;
+          padding: 20px;
+      }
+  
+      .logo {
+          color: white;
+          font-size: 30px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 75px;
+      }
+  
+      .cont_middle {
+          display: flex;
+          flex-flow: column;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0px auto;
+          width: 90%;
+          height: 100%;
+      }
+  
+      .main_top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 50px;
+          text-align: center;
+          font-size: 17px;
+          background-color: rgba(240, 240, 240, 1);
+      } 
+      
+      .main_top > p {
+          margin-top: 15px;
+          margin-left: 15px;
+      }
+  
+      .main_middle {
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          justify-content: space-between;
+          padding-top: 5px;
+          background-color: rgba(255, 255, 255, 1);
+      }
+  
+      .main_middle>.d-flex {
+          margin-top: 30px;
+      }
+  
+      .main_middle>.d-flex>.card {
+          margin-right: 20px;
+      }
+  
+      .cont_bottom {             
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          justify-content: space-between;
+          margin: auto;
+          width: 90%;
+          max-width: 700px;     
+      }  
+  
+      .txtar {
+          margin-left: 100px;
+          margin-right: 100px;
+      }
+  
+      .btn_rv {
+          background-color: black;
+          color: white;
+          margin-left: 100px;
+          border-radius: 5%;
+      }
+  
+      /* .rev {
+          margin: 50px 0px 0px 100px;
+      } */
+  
+      .mypost {
+          width: 90%;
+          max-width: 500px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-bottom: 30px;
+      }
+  
+      .mypost>button {
+          margin-bottom: 15px;
+      }
+  
+      .mybtns {
+          margin-top: 15px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+      }
+  
+      .mybtns > button {
+        margin-left: 7.5px;
+        margin-right: 7.5px;
+      }    
+  
+    </style>
+</head>
+
+<body>
+  <div class="titles">
+    <h1>스파르타대학교</h1>
+
+  </div>
+  <div class="itduce">
+    <div>과목 소개</div>
+  </div>
+  <div>
+    <div class="profile">
+      <img src="..\profile_image\LSM.png">
+    </div>
+    <div class="comments">
+      <p><b>
+          <h3>이승민</h3>
+        </b></p>
+      <p><img src="..\profile_image\line.png"></p>
+      <p><b>개발일지</b> <a href="https://msmscoding.tistory.com/">https://msmscoding.tistory.com/</a></p>
+      <p><b>이메일</b> inheth2@gmail.com</p>
+      <p>영어 외에도 일본어, 독일어 등에 관심이 많습니다.</P>
+      <p>INFP입니다. 내성적이지만 정이 많고 타인을 배려하려고 노력합니다.</P>
+      <p>비전공자이지만 열심히 하겠습니다!</P>
+
+    </div>
+  </div>
+  <button class="rv" onclick="open_box()">
+    후기 남기기</button></button>
+  <div class="mypost" id="post-box">
+    <div class="form-floating mb-3">
+      <input id="name" type="text" class="form-control" placeholder="name@example.com">
+      <label>닉네임</label>
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">별점</label>
+      <select class="form-select" id="star">
+        <option selected>-- 선택하기 --</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+    </div>
+    <div class="form-floating">
+      <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
+      <label for="floatingTextarea2">후기</label>
+    </div>
+    <div class="mybtns">
+      <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
+      <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+    </div>
+
+    <div class="revs">
+      <b1 class="rev">
+        <p><td>과제가 별로 없어요.</td></p>
+        <p><td>⭐⭐⭐⭐⭐</td></p>
+        <footer class="blockquote-footer"><td>s2min</td></footer>
+      </b1>
+      <b2>
+        <p><td>지루해요.</td></p>
+        <p><td>⭐⭐⭐</td></p>
+        <footer class="blockquote-footer"><td>eunnsu</td></footer>
+      </b2>
+      <div>
+        <b2>
+          <p>열심히 해요.</p>
+          <p>⭐⭐⭐⭐</p>
+          <footer class="blockquote-footer">lee3883</footer>
+        </b2>
+        
+      </div>
+    </div>
+</body>
+<script>
+  $(document).ready(function () {
+    set_temp();
+    show_comment();
+  });
+
+  function posting() {
+    let name = $('#name').val()
+    let star = $('#star').val()
+    let comment = $('#comment').val()
+
+    let formData = new FormData();
+    formData.append("name_give", name);
+    formData.append("star_give", star);
+    formData.append("comment_give", comment);
+
+    fetch('/guestbook', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+      console.log(data);
+      alert(data["msg"]);
+    });
+  }
+  function show_comment() {
+    fetch('/guestbook').then((res) => res.json()).then((data) => {
+      alert(data["msg"])
+    })
+  }
+  function open_box() {
+    $('#post-box').show()
+  }
+
+  function close_box() {
+    $('#post-box').hide()
+  }
+</script>
+
+</html>
