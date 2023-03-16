@@ -28,15 +28,6 @@ def teamlist_get():
     return jsonify({'team': teamlist})
 
 
-# #소개 페이지로 넘어가기 & 소개 페이지에 멤버 데이터 & 댓글 데이터 덮어 쓰기
-# @app.route("/intro1/<id>", methods=["GET"])
-# def detail_get(id):
-#     teamlist = db.team.find_one({'name': id}, {'_id': False})
-#     reviews = list(db.reviewlist.find({'name':id},{'_id':False}))
-#     print(teamlist, reviews)
-#     return render_template('index_introduce.html', data=teamlist, data1 = reviews)
-
-
 #근혜님 소개페이지
 @app.route("/1/<id>", methods=["GET"])
 def detail_kgh_get(id):
