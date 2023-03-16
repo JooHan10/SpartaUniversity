@@ -26,13 +26,24 @@
         </div>
       </div>
       <div class="main_middle">
+        <div class="img_box"></div>
         <div class="profile">
-          <section class="pro_name">{{data.name}}</section>
-          <section class="pro_posi">{{data.posi}}</section>
-          <section class="pro_tmi">{{data.tmi}}</section>
+          <section class="intro1">정보</section>
+          <section class="pro_name">
+            <p id="pro_name">{{data.name}}</p>
+          </section>
+          <section class="pro_posi">
+            <p>{{data.posi}}</p>
+          </section>
+          <section class="pro_tmi">
+            <p>{{data.tmi}}</p>
+          </section>
         </div>
         <div class="comments">
-          {{data.comment}}
+          <section class="intro2">한마디</section>
+          <section class="pro_com">{{data.comment}}</section>
+          <section class="pro_blank">보이지 않아</section>
+          <section class="pro_blank">가려져 있어</section>
         </div>
       </div>
       <div class="main_bottom">
@@ -41,6 +52,7 @@
       </div>
     </section>
   </div>
+  <div class="bg_color"></div>
 
   <div class="review-dummy">
     <section class="rdTop">
@@ -67,7 +79,8 @@
     </section>
     <section class="rdMiddle2">
       <div class="reviewc">
-        <label>평가 작성</label><textarea name="comment" id="reviewi" cols="31" rows="10" required="required"></textarea>
+        <label>평가 작성</label>
+        <textarea name="comment" id="reviewi" cols="31" rows="10" required="required"></textarea>
       </div>
     </section>
     <section class="rdBottom">
@@ -89,11 +102,12 @@
       let userid = reviewlist[i]['userID']
       let txt_review = reviewlist[i]['Txt_review']
       let starpoint = reviewlist[i]['StarPoint_review']
+      let star = '⭐'.repeat(starpoint)
 
       let temp_html = `<div class="userReview">
                         <div class="urTop">
                           <p>${userid}</p>
-                          <p>별점<span style="color:rgba(220, 20, 60, 1)">${starpoint}</span></p>
+                          <p>별점<span>${star}</span></p>
                         </div>
                         <div class="urMiddle">
                           <div class="textcss1">리뷰</div>
@@ -147,7 +161,7 @@
       let userID = $('#userNamei').val()
       let Txt_review = $('#reviewi').val()
       let StarPoint_review = $('#reviewStar').val()
-      let name = $('.pro_name').html()
+      let name = $('#pro_name').html()
 
       let formData = new FormData();
       formData.append("userID_give", userID);

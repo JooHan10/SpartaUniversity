@@ -11,23 +11,32 @@
     list-style: none;
     box-sizing: border-box;
     text-decoration: none;
-    color: black;
     font-family: 'TheJamsil5Bold';
+    color: rgba(107,142,35, 1);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
 .blur {
     opacity: 0.3;
     transition: 0.5s;
-  }
+}
 
 .cont_top {
+    position: fixed;
+    top: 0%;
+    left: 0%;
     width: 100%;
     height: 120px;
-    background-color: rgba(220, 20, 60, 1);
+    background-color: rgba(107,142,35, 1);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 5px;
 }
 
 .logo {
@@ -37,6 +46,16 @@
     text-align: center;
 }
 
+.bg_color{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(107,142,35, 0.7);
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+}
+
 .write_btn {
     width: 150px;
     height: 50px;
@@ -44,7 +63,7 @@
     border-radius: 10px;
     font-size: 25px;
     font-weight: bold;
-    background-color: rgba(220, 20, 60, 1);
+    background-color: rgba(107,142,35, 0.7);
     color: white;
     box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 7px;
     transition: 0.3s;
@@ -52,7 +71,7 @@
 
 .write_btn:hover {
     background-color: rgba(240, 240, 240, 1);
-    color: rgba(220, 20, 60, 1);
+    color: rgba(107,142,35, 1);
     cursor: pointer;
 }
 
@@ -61,7 +80,7 @@
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    margin: 0px auto;
+    margin: 120px auto;
     width: 90%;
 }
 
@@ -86,21 +105,68 @@
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 5px;
-    background-color: rgba(255, 255, 255, 1);
+    justify-content: space-around;
+    padding: 5px 0px 5px 0px;
+    background-color: rgba(107,142,35,);
+}
+
+.img_box {
+    background-image: url('/static/img/IJH.png');
+    background-size: cover;
+    background-position: center;
+    width: 20%;
+    height: 300px;
+    border-radius: 10px;
+    margin-right: 5px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 5px;
 }
 
 .profile {
-    background-color:blanchedalmond;
-    width: 200px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgba(240, 240, 240, 1);
+    width: 20%;
     height: 300px;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 10px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 5px;
 }
 
+.intro1, .intro2 {
+    width: 100%;
+    font-size: 25px;
+}
+
+.pro_name, .pro_posi, .pro_tmi {
+    height: 20%;
+    line-height: 60px;
+} 
+
 .comments {
-    background-color: beige;
-    width: 73%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgba(240, 240, 240, 1);
+    width: 20%;
     height: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 5px;
+}
+
+.pro_com {
+    height: 20%;
+    line-height: 60px;
+}
+
+.pro_blank {
+    height: 20%;
+    line-height: 60px;
+    color: rgba(240, 240, 240, 1);
 }
 
 .main_bottom {
@@ -110,8 +176,8 @@
     flex-flow: column;
     align-items: center;
     justify-content: space-between;
-    padding-top: 5px;
-    background-color: rgba(255, 255, 255, 1);
+    /* padding-top: 5px; */
+    /* background-color: rgba(255, 255, 255, 1); */
 }
 
 .txtar {
@@ -129,7 +195,6 @@
 .reviewCont {
     width: 100%;
     margin-top: 30px;
-    padding-bottom: 20px;
     display: flex;
     flex-flow: column;
     align-items: flex-start;
@@ -140,12 +205,13 @@
     width: 100%;
     height: 350px;
     background-color: rgba(255, 255, 255, 1);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-shadow: rgb(0 0 0 / 5%) 0px 0px 6px 5px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 5px;
+    border-radius: 10px;
 }
   
 .urTop {
@@ -164,6 +230,7 @@
 
 .urTop>p>span {
     margin-left: 5px;
+    color: rgba(107,142,35, 1);
 }
 
 .urMiddle {
@@ -186,7 +253,7 @@
     height: 70%;
     background-color: rgba(255, 255, 255, 1);
     padding: 10px;
-    border: 2px solid rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(107,142,35, 1);
     border-radius: 7px;
     color: rgb(51, 51, 51);
     font-size: 16px;
@@ -228,7 +295,6 @@
     height: 70px;
     border: none;
     background-color:rgba(240, 240, 240, 1);
-    color: rgba(0, 0, 0, 1);
     font-size: 20px;
     border-radius: 7px;
     cursor: pointer;
@@ -240,7 +306,6 @@
     height: 70px;
     border: none;
     background-color:rgba(240, 240, 240, 1);
-    color: rgba(0, 0, 0, 1);
     font-size: 20px;
     border-radius: 7px;
     cursor: pointer;
@@ -262,6 +327,7 @@
     background-color: rgba(245, 245, 245, 1);
     box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 5px;
     border-radius: 20px;
+    color: rgba(107,142,35, 1);
 }
   
 .reviewTitle > p {
@@ -295,7 +361,7 @@
     padding-left: 30px;
     border-radius: 7px;
     border: none;
-    outline: 2px solid rgba(0, 0, 0, 0.5);
+    outline: 2px solid rgba(107,142,35, 0.5);;
 }
   
 .form-select {
@@ -303,7 +369,7 @@
     padding: 13px 0px;
     border-radius: 7px;
     border: none;
-    outline: 2px solid rgba(0, 0, 0, 0.5);
+    outline: 2px solid rgba(107,142,35, 0.5);
     font-size: 16px;
 }
   
@@ -335,7 +401,7 @@
     padding-left: 10px;
     border-radius: 7px;
     border: none;
-    outline: 2px solid rgba(0, 0, 0, 0.5);
+    outline: 2px solid rgba(107,142,35, 0.5);
 }
   
 .pushBtn {
@@ -343,6 +409,7 @@
     height: 50px;
     border: none;
     background-color:rgba(240, 240, 240, 1);
+    color: rgba(107,142,35, 1);
     font-size: 25px;
     border-radius: 7px;
     cursor: pointer;
@@ -351,7 +418,7 @@
   
 .pushBtn:hover {
     color: rgba(240, 240, 240, 1);
-    background-color: rgba(220, 20, 60, 1);
+    background-color: rgba(107,142,35, 0.7);
     transition: 0.5s;
 }
   
