@@ -95,7 +95,7 @@
 <script>
   $(document).ready(function () {
     listing();
-    $('#post-box').hide()
+    $('#post-box').hide()  
   });
 
   function listing() {
@@ -114,19 +114,7 @@
 
     //       let star_image = '⭐'.repeat(star)
 
-    //       let temp_html = `<div class="rev">
-    //                         <p>${name} ${star_image}</p>
-    //                         <footer class="blockquote-footer">${comment}</footer>
-    //                       </div>`
-    //       <div class="col">
-    //                             <div class="card h-100">
-    //                                 <div class="card-body">
-    //                                     <h5 class="card-title">${name}</h5>
-    //                                     <p>${star_image}</p>
-    //                                     <p class="mycomment">${comment}</p>                                      
-    //                                 </div>
-    //                             </div>
-    //                         </div>`
+    //       let temp_html = ``
 
     //       $('#cards-box').append(temp_html)
     //     }
@@ -141,39 +129,58 @@
       let star_image = '⭐'.repeat(star)
 
       let temp_html = `<div class="rev">
-                        <p>${name} ${star_image}</p>
+                        <p>${name}   
+                          <img align="right" onclick="clearbtn()" class="clear-bt" src="/static/img/clear.svg" />                             
+                          <img align="right" onclick="editbtn()" class="edit-bt" src="/static/img/edit.svg" /></p>
                         <footer class="blockquote-footer">${comment}</footer>
+                        <p>${star_image}</p>
+                        <hr align="center">
                       </div>`
       $('#cards-box').append(temp_html)
     }
   }
 
   function post_box() {
-    let userID = $('#name').val()
-    let StarPoint_review = $('#star').val()
-    let Txt_review = $('#comment').val()
-    let name = $('.card-title').html()
+    if ($('#name').val() == 0) {
+      alert('닉네임을 입력해 주세요!');
+    } else if ($('#star').val() == '-- 선택하기 --') {
+      alert('별점을 입력해 주세요!');
+    } else if ($('#comment').val() == 0) {
+      alert('리뷰를 입력해 주세요!');
+    } else {
+      let userID = $('#name').val()
+      let StarPoint_review = $('#star').val()
+      let Txt_review = $('#comment').val()
+      let name = $('.card-title').html()
 
-    let formData = new FormData();
-    formData.append("userID_give", userID);
-    formData.append("Txt_review_give", Txt_review);
-    formData.append("StarPoint_review_give", StarPoint_review);
-    formData.append("name_give", name);
+      let formData = new FormData();
+      formData.append("userID_give", userID);
+      formData.append("Txt_review_give", Txt_review);
+      formData.append("StarPoint_review_give", StarPoint_review);
+      formData.append("name_give", name);
 
-    fetch('/saveReview', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
-      alert(data["msg"]);
-      window.location.reload(true);
-    });
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/saveReview',
-    //   data: { userID_give: userID, StarPoint_give: StarPoint_review, Txt_give: Txt_review, name_give: name },
-    //   success: function (response) {
-    //     alert(response['msg'])
-    //     window.location.reload()
-    //   }
-    // });
+      fetch('/saveReview', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+        alert(data["msg"]);
+        window.location.reload(true);
+      });
+    }
   }
+    
+    // function clearbtn(num) {    
+    //   console.log(num);
+        
+    //   $.ajax({
+    //     type: 'DELETE',
+    //     url: '/del_review/' + num,       
+    //     success: function(data) {
+    //       alert(data["msg"]);
+    //       window.location.reload();
+    //     },
+    //     error: function(data) {
+    //       alert(data["responseText"]);
+    //     }
+    //   });
+    // }
 
   function open_box() {
     $('#post-box').show()
