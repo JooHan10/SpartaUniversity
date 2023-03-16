@@ -1,0 +1,365 @@
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+    font-family: 'TheJamsil5Bold';
+}
+
+.blur {
+    opacity: 0.3;
+    transition: 0.5s;
+  }
+
+.cont_top {
+    width: 100%;
+    height: 120px;
+    background-color: rgba(220, 20, 60, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.write_btn {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: rgba(220, 20, 60, 1);
+    color: white;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 7px;
+    transition: 0.3s;
+}
+
+.write_btn:hover {
+    background-color: rgba(240, 240, 240, 1);
+    color: rgba(220, 20, 60, 1);
+    cursor: pointer;
+}
+
+.cont_middle {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px auto;
+    width: 90%;
+}
+
+.main_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 17px;
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.itduce {
+    padding: 20px;
+}
+
+.main_middle {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.profile {
+    background-color:blanchedalmond;
+    width: 200px;
+    height: 300px;
+}
+
+.comments {
+    background-color: beige;
+    width: 73%;
+    height: 300px;
+}
+
+.main_bottom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.txtar {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.btn_rv{
+    background-color: black;
+    color: white;
+    margin-left: 100px;
+    border-radius: 5%;
+}
+
+.reviewCont {
+    width: 100%;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+  
+.userReview {
+    width: 100%;
+    height: 350px;
+    background-color: rgba(255, 255, 255, 1);
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 6px 5px;
+}
+  
+.urTop {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px 0px 0px 25px;
+    font-size: 25px;
+}
+
+.urTop>p:nth-child(2) {
+    margin-left: 50px;
+}
+
+.urTop>p>span {
+    margin-left: 5px;
+}
+
+.urMiddle {
+    width: 100%;
+    height: 45%;
+    padding: 0px 25px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: auto;
+}
+
+.textcss1 {
+    font-size: 20px;
+}
+  
+.textcss2{
+    width: 100%;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+    color: rgb(51, 51, 51);
+    font-size: 16px;
+    font-weight: 100;
+}
+  
+.urBottom {
+    width: 100%;
+    height: 100px;
+    padding: 0px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(220, 220, 220, 1);
+}
+  
+.symBtn1 {
+    width: 150px;
+    height: 70px;
+    border: none;
+    background-color:rgba(240, 240, 240, 1);
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 7px;
+}
+
+.real_btn {
+    width: 330px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amend_btn {
+    width: 150px;
+    height: 70px;
+    border: none;
+    background-color:rgba(240, 240, 240, 1);
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 7px;
+}
+
+.del_btn {
+    width: 150px;
+    height: 70px;
+    border: none;
+    background-color:rgba(240, 240, 240, 1);
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 7px;
+}
+
+.review-dummy{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(245, 245, 245, 1);
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 5px;
+    border-radius: 20px;
+}
+  
+.reviewTitle > p {
+    font-size: 50px;
+}
+  
+.rdMiddle1 {
+    width: 70%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.rdMiddle1 > div {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100px;
+}
+  
+.rdMiddle1 > div > label {
+    font-size: 30px;
+}
+  
+.rdMiddle1 > div > input {
+    width: 250px;
+    height: 50px;
+    font-size: 16px;
+    padding-left: 30px;
+    border-radius: 7px;
+    border: none;
+    outline: 2px solid rgba(0, 0, 0, 0.5);
+}
+  
+.form-select {
+    height: 52px;
+    padding: 13px 0px;
+    border-radius: 7px;
+    border: none;
+    outline: 2px solid rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+}
+  
+.rdMiddle2 {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 70%;
+    height: 300px;
+}
+  
+.rdMiddle2 > div {
+    height: 250px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+  
+.reviewc > label {
+    font-size: 30px;
+}
+  
+.reviewc > textarea {
+    width: 420px;
+    height: 200px;
+    font-size: 16px;
+    padding-left: 10px;
+    border-radius: 7px;
+    border: none;
+    outline: 2px solid rgba(0, 0, 0, 0.5);
+}
+  
+.pushBtn {
+    width: 300px;
+    height: 50px;
+    border: none;
+    background-color:rgba(240, 240, 240, 1);
+    font-size: 25px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 6px 7px;
+}
+  
+.pushBtn:hover {
+    color: rgba(240, 240, 240, 1);
+    background-color: rgba(220, 20, 60, 1);
+    transition: 0.5s;
+}
+  
+.review-dummy > i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}

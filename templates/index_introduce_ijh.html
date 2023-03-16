@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/introduce_ijh.css">
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>스파르타대학교 - 과목 소개</title>
+</head>
+
+<body>
+  <div id="sketch">
+    <section class="cont_top">
+      <a href="/">
+        <div class="logo">스파르타대학교</div>
+      </a>
+      <button class="write_btn">리뷰</button>
+    </section>
+    <section class="cont_middle">
+      <div class="main_top">
+        <div class="itduce">
+          <div>{{data.favlang}}</div>
+        </div>
+      </div>
+      <div class="main_middle">
+        <div class="profile">
+          <section class="pro_name">{{data.name}}</section>
+          <section class="pro_posi">{{data.posi}}</section>
+          <section class="pro_tmi">{{data.tmi}}</section>
+        </div>
+        <div class="comments">
+          {{data.comment}}
+        </div>
+      </div>
+      <div class="main_bottom">
+        <section class="reviewCont" id="reviewCont">
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <div class="review-dummy">
+    <section class="rdTop">
+      <div class="reviewTitle">
+        <p>평가 하기</p>
+      </div>
+    </section>
+    <section class="rdMiddle1">
+      <div class="userNamec">
+        <label>닉네임</label>
+        <input id="userNamei" type="text" class="form-control" placeholder="닉네임" required="required">
+      </div>
+      <div class="starPoint">
+        <label class="input-group-text" for="inputGroupSelect01">별점</label>
+        <select class="form-select" id="reviewStar">
+          <option selected>-- 선택하기 --</option>
+          <option value="1">⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+      </div>
+    </section>
+    <section class="rdMiddle2">
+      <div class="reviewc">
+        <label>평가 작성</label><textarea name="comment" id="reviewi" cols="31" rows="10" required="required"></textarea>
+      </div>
+    </section>
+    <section class="rdBottom">
+      <button onclick="saveReview()" class="pushBtn">등록 하기</button>
+    </section>
+    <i class="xi-close"></i>
+  </div>
+</body>
+
+<script>
+  $(document).ready(function () {
+    review_listing();
+  });
+
+  function review_listing() {
+    let reviewlist = JSON.parse('{{ data1 | tojson}}');
+    $('#reviewCont').empty()
+    for (let i = 0; i < reviewlist.length; i++) {
+      let userid = reviewlist[i]['userID']
+      let txt_review = reviewlist[i]['Txt_review']
+      let starpoint = reviewlist[i]['StarPoint_review']
+
+      let temp_html = `<div class="userReview">
+                        <div class="urTop">
+                          <p>${userid}</p>
+                          <p>별점<span style="color:rgba(220, 20, 60, 1)">${starpoint}</span></p>
+                        </div>
+                        <div class="urMiddle">
+                          <div class="textcss1">리뷰</div>
+                          <div class="textcss2">${txt_review}</div>
+                        </div>
+                        <div class="urBottom">
+                          <button class="symBtn1" onclick="symBtn(${i})">
+                            <p>공감</p>
+                            <p id="symCnt${i}">0</p>
+                          </button>
+                          <div class="real_btn">
+                            <button class="amend_btn">수정하기</button>
+                            <button class="del_btn">삭제하기</button>
+                          </div>
+                        </div>
+                      </div>`
+      $('#reviewCont').append(temp_html)
+    }
+  }
+
+  let counttest = [];
+  function symBtn(a) {
+    if (!counttest[a]) counttest[a] = 0;
+    counttest[a]++;
+    $('#symCnt' + a).text(counttest[a]);
+  }
+
+
+  $('.review-dummy').hide();
+
+  $('.write_btn').click(function () {
+    $('.review-dummy').fadeIn(500);
+    $('#sketch').addClass('blur');
+    $('#sketch').css("pointer-events", "none");
+  });
+
+  $('.review-dummy>i').click(function () {
+    $('.review-dummy').hide();
+    $('#sketch').removeClass('blur');
+    $('#sketch').css("pointer-events", "auto");
+    $('#userNamei').val('');
+    $('#reviewi').val('');
+    $('#reviewStar').val('-- 선택하기 --');
+  });
+
+
+  function saveReview() {
+    if ($('#userNamei').val() == 0 || $('#reviewi').val() == 0 || $('#reviewStar').val() == '-- 선택하기 --') {
+      alert('닉네임 & 별점 & 리뷰를 입력해 주세요!');
+    } else {
+      let userID = $('#userNamei').val()
+      let Txt_review = $('#reviewi').val()
+      let StarPoint_review = $('#reviewStar').val()
+      let name = $('.pro_name').html()
+
+      let formData = new FormData();
+      formData.append("userID_give", userID);
+      formData.append("Txt_review_give", Txt_review);
+      formData.append("StarPoint_review_give", StarPoint_review);
+      formData.append("name_give", name);
+
+      fetch('/saveReview', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+        alert(data["msg"]);
+        window.location.reload(true);
+      });
+
+      $('.review-dummy').hide();
+      $('#sketch').removeClass('blur');
+      $('#sketch').css("pointer-events", "auto");
+      $('#userNamei').val('');
+      $('#reviewi').val('');
+      $('#reviewStar').val('-- 선택하기 --');
+    }
+  };
+
+  // function del_review() {
+  //   if (confirm("작성자가 맞으십니까?") == true) {
+  //     fetch('/del_review', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+  //       alert(data["msg"]);
+  //       window.location.reload(true);
+  //     });
+  //   } else {
+  //   }
+  // }
+
+</script>
+
+</html>

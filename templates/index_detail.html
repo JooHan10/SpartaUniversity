@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/detail.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cont_body">
+        <section class="cont_top">
+            <a href="/">
+                <div class="logo">스파르타대학교</div>
+            </a>
+        </section>
+        <section class="cont_middle">
+            <div class="main_top">
+                <div class="cont_name">
+                    <p>개설과목 조회/신청</p>
+                </div>
+            </div>
+            <div class="main_middle">
+                <ul class="cont_txt">
+                    <li class="row1">
+                        <p>no.</p>
+                    </li>
+                    <li class="row2">
+                        <p>이름</p>
+                    </li>
+                    <li class="row3">
+                        <p>좋아하는 언어</p>
+                    </li>
+                    <li class="row4">
+                        <p>직급</p>
+                    </li>
+                    <li class="row5">
+                        <p>tmi</p>
+                    </li>
+                    <li class="row6">
+                        <p>한마디</p>
+                    </li>
+                </ul>
+                <section class="cont_box">
+                </section>
+            </div>
+        </section>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        listing();
+    });
+
+    // function listing() {
+    //     fetch('/teamSU').then((res) => res.json()).then((data) => {
+    //         let rows = data['team']
+    //         console.log(rows[0]['name'])
+    //         $('.cont_box').empty()
+    //         rows.forEach((a) => {
+    //             let number = a['num']
+    //             let name = a['name']
+    //             let favorite_language = a['favlang']
+    //             let position = a['posi']
+    //             let tmi = a['tmi']
+    //             let comment = a['comment']
+    //             let temp_html = `<ul class="cont_main">
+    //                                 <li class="row1">
+    //                                     <p>${number}</p>
+    //                                 </li>
+    //                                 <li class="row2">
+    //                                     <p>${name}</p>
+    //                                 </li>
+    //                                 <li class="row3">
+    //                                     <p>${favorite_language}</p>
+    //                                 </li>
+    //                                 <li class="row4">
+    //                                     <p>${position}</p>
+    //                                 </li>
+    //                                 <li class="row5">
+    //                                     <p>${tmi}</p>
+    //                                 </li>
+    //                                 <li class="row6">
+    //                                     <p>${comment}</p>
+    //                                     <button class="det_button"><a href="/intro1/${name}">평가</a></button>
+    //                                 </li>
+    //                             </ul>`
+    //             $('.cont_box').append(temp_html);
+    //         });
+    //     });
+    // };
+
+    function listing() {
+        fetch('/teamSU').then((res) => res.json()).then((data) => {
+            let rows = data['team']
+            console.log(rows)
+            $('.cont_box').empty()
+            rows.forEach((a) => {
+                let number = a['num']
+                let name = a['name']
+                let favorite_language = a['favlang']
+                let position = a['posi']
+                let tmi = a['tmi']
+                let comment = a['comment']
+                let temp_html = `<ul class="cont_main">
+                                    <li class="row1">
+                                        <p>${number}</p>
+                                    </li>
+                                    <li class="row2">
+                                        <p>${name}</p>
+                                    </li>
+                                    <li class="row3">
+                                        <p>${favorite_language}</p>
+                                    </li>
+                                    <li class="row4">
+                                        <p>${position}</p>
+                                    </li>
+                                    <li class="row5">
+                                        <p>${tmi}</p>
+                                    </li>
+                                    <li class="row6">
+                                        <p>${comment}</p>
+                                        <button class="det_button"><a href="/${number}/${name}">평가</a></button>
+                                    </li>
+                                </ul>`
+                $('.cont_box').append(temp_html);
+            });
+        });
+    };
+</script>
+
+</html>

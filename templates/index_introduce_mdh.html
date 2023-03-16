@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/static/introduce_mdh.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <title>스파르타대학교 - 과목 소개</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="titles">
+    <h1>스파르타대학교</h1>
+
+  </div>
+  <div class="itduce">
+    <div>과목 소개</div>
+  </div>
+  <div>
+    <div class="profile">
+      <img src="/static/img/MDH.png" width="100%">
+    </div>
+    <div class="comments">
+      <p class="c_name">{{data.name}}</P>
+      <p class="c_c">태어나서 코드를 다뤄보길 2023년이 처음인 비전공 코딩학도 입니다</p>
+      <p class="c_c">일본에 관심이 있어 대학졸업 후 일본에서 1년간 생활을 하다 코로나시국으로 귀국해서 여기까지 왔습니다</p>
+      <p class="c_c">성미가 원체 가만히 있는 것을 좋아하는지라 집중해야하는 작업에 있어서 소질이 있다고 생각합니다</p>
+      <p class="c_c"> 우선순위를 두어 차근차근 해나가는 것을 지향합니다</p>
+      <p class="c_c1"> E-mail : ehd0831@naver.com</P>
+      <p class="c_c2"> Blog : https://mdhtora.tistory.com/</P>
+      <!-- <p> 1. [팀]과 [자신]에 대한 설명 및 MBTI 
+                2. 객관적으로 살펴본 자신의 장점
+                3. 협업을 하는 과정에서의 자신의 스타일
+                4. 우리 팀만의 특징과 추구하는 궁극적인 목표
+                5. 우리 팀의 약속
+                6. 팀원들의 블로그 주소</P> -->
+
+    </div>
+  </div>
+  <button class="rv" onclick="open_box()">
+    후기 남기기</button></button>
+  <div class="mypost" id="post-box">
+    <div class="form-floating mb-3">
+      <input id="name" type="text" class="form-control" placeholder="name@example.com">
+      <label>닉네임</label>
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">별점</label>
+      <select class="form-select" id="star">
+        <option selected>-- 선택하기 --</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+    </div>
+    <div class="form-floating">
+      <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
+      <label for="floatingTextarea2">후기</label>
+    </div>
+    <div class="mybtns">
+      <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
+      <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+    </div>
+
+    <div class="revs">
+    </div>
+</body>
+<script>
+  $(document).ready(function () {
+    listing();
+  });
+
+  function listing() {
+    let reviewlist = JSON.parse('{{ data1 | tojson}}');
+    $('.revs').empty()
+    for (let i = 0; i < reviewlist.length; i++) {
+      let name = reviewlist[i]['userID']
+      let comment = reviewlist[i]['Txt_review']
+      let star = reviewlist[i]['StarPoint_review']
+      let star_image = '⭐'.repeat(star)
+
+      let temp_html = `<b1 class="rev">
+                        <p>${name}</p>
+                        <p>${star_image}</p>
+                        <footer class="blockquote-footer">${comment}</footer>
+                      </b1>`
+      $('.revs').append(temp_html)
+    }
+  }
+
+  function posting() {
+    let userID = $('#name').val()
+    let StarPoint_review = $('#star').val()
+    let Txt_review = $('#comment').val()
+    let name = $('.c_name').html()
+
+    let formData = new FormData();
+    formData.append("userID_give", userID);
+    formData.append("Txt_review_give", Txt_review);
+    formData.append("StarPoint_review_give", StarPoint_review);
+    formData.append("name_give", name);
+
+    fetch('/saveReview', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+      alert(data["msg"]);
+      window.location.reload(true)
+    });
+  }
+
+  function open_box() {
+    $('#post-box').show()
+  }
+
+  function close_box() {
+    $('#post-box').hide()
+  }
+</script>
+
+</html>
