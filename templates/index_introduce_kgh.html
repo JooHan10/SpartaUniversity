@@ -11,7 +11,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-  <title>나의 소개</title>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>  
+  <title>나의 소개</title>  
 </head>
 
 <body>
@@ -20,7 +21,7 @@
       <a href="/" style="text-decoration-line: none">
         <div class="logo">스파르타대학교</div>
       </a>
-    </section>
+    </section>    
     <section class="cont_middle">
       <div class="main_top">
         <p>나의 소개</p>
@@ -32,7 +33,7 @@
             alt="...">
           <div class="card-body">
             <h5 class="card-title">{{data.name}}</h5>
-            <p class="card-text">안녕하세요!<br />얼떨결에 스파르타대학교의<br />교장입니다. 잘 부탁드립니다!</p>
+            <p class="card-text">안녕하세요!<br />얼떨결에 스파르타대학교의<br />팀장입니다. 잘 부탁드립니다!</p>
             <a href="https://sw-ing.tistory.com/" target='_blank' class="btn btn-primary">Go</a>
           </div>
         </div>
@@ -46,10 +47,9 @@
               양산 순매원 갔다가 차 막혀 죽는 줄~<br />그리고 '올팜' 사과나무를 키우고 있는데<br />얼른 배송 오면 좋겠어요!!<br />
               5기 여러분 화이팅b<br />우리 조 화이팅🤍
               <img src="/static/img/apple.jpg" class="apple" onclick="apple()" style="float: right; width:120px; border-radius: 10px;">
-            </p><br />
-            <p class="card-text"><small>TMI : 초보 블로거임</small><br /><br />
-              <button onclick="window.open('https://blog.naver.com/mykgh6514')" type="button"
-                class="btn btn-outline-light">Blog</button>
+            </p>
+            <p class="card-text"><small>TMI : 초보 블로거임<br/>눌러보세요👉👉👉</small><br/><br/>
+              <button onclick="window.open('https://blog.naver.com/mykgh6514')" type="button" class="btn btn-outline-light">Blog</button>
             </p>
           </div>
         </div>
@@ -57,8 +57,9 @@
     </section>
     <section class="cont_bottom">
       <div class="rv">
-        <button onclick="open_box()" type="button" class="btn btn-outline-dark" style="margin-bottom: 15px;">후기
-          남기기</button>
+        <button onclick="open_box()" type="button" class="btn btn-outline-dark" style="margin-bottom: 15px;">후기남기기</button>
+        <button onclick="heart_box()" type="button" class="btn btn-outline-dark" style="margin-bottom: 15px;">하트 남기기
+          <img id="imgheart" class="heart-bt" src="/static/img/favorite_border.svg" /></button>
       </div>
       <div class="mypost" id="post-box">
         <div class="form-floating mb-3">
@@ -182,27 +183,25 @@
     $('#post-box').hide()
   }
 
-  // function apple() {
-  //   swal("같이 할래?", "https://alwayzshop.page.link/BM6rGVb8g8yyVP5L6");
-  // }
+  function apple() {
+    swal("같이 할래?", "https://alwayzshop.page.link/BM6rGVb8g8yyVP5L6");
+  }
 
+  var prevImgUrl = document.getElementById("imgheart").src;
+  var prevBgUrl = document.body.style.backgroundImage;
 
-  // //클릭할 때마다 하트 이미지 바뀌기
-  // var prevImgUrl = document.getElementById("imgheart").src; //이전 하트 이미지 변수에 저장
-  // var prevBgUrl = document.body.style.backgroundImage; //이전 배경 이미지 변수에 저장
-
-  // function heart_box() {
-  //   var heartImg = document.getElementById("imgheart");
-  //   if (heartImg.src.indexOf("/static/favorite.svg") != -1) {
-  //     heartImg.src = prevImgUrl;
-  //     document.body.style.backgroundImage = prevBgUrl;
-  //   } else {
-  //     prevImgUrl = heartImg.src;
-  //     prevBgUrl = document.body.style.backgroundImage;
-  //     heartImg.src = "/static/favorite.svg";
-  //     document.body.style.backgroundImage = "url('/static/backimage.jpg')";
-  //   }
-  // }
+  function heart_box() {
+    var heartImg = document.getElementById("imgheart");
+    if (heartImg.src.indexOf("/static/img/favorite.svg") != -1) {
+      heartImg.src = prevImgUrl;
+      document.body.style.backgroundImage = prevBgUrl;
+    } else {
+      prevImgUrl = heartImg.src;
+      prevBgUrl = document.body.style.backgroundImage;
+      heartImg.src = "/static/img/favorite.svg";
+      document.body.style.backgroundImage = "url('/static/img/backimage.jpg')";
+    }
+  }
 </script>
 
 </html>
