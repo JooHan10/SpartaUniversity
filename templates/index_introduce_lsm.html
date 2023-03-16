@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="/static/introduce.css">
+  <link rel="stylesheet" href="/static/introduce_lsm.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -18,164 +17,28 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
     rel="stylesheet" />
-  <style>
-    @font-face {
-      font-family: 'TheJamsil3Bold';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-      font-weight: 700;
-      font-style: normal;
-    }
-
-    * {
-      font-family: 'TheJamsil5Bold', sans-serif;
-    }
-
-    .titles {
-      width: 100%;
-      height: 120px;
-      background-color: rgba(220, 20, 60, 1);
-      display: flex;
-      justify-content: flex-start;
-      padding: 20px;
-    }
-
-    .logo {
-      color: white;
-      font-size: 30px;
-      font-weight: bold;
-      text-align: center;
-      line-height: 70px;
-    }
-
-    .itduce {
-      background-color: rgba(239, 245, 255, 1);
-      margin-left: 100px;
-      font-size: 20px;
-      padding: 10px 0px 10px 15px;
-    }
-
-    .profile {
-      margin-left: 100px;
-      margin-top: 10px;
-      background-color: white;
-      display: inline-block;
-      vertical-align: top;
-      text-align: center;
-    }
-
-    .card-img-top {
-      text-align: center;
-      width: 18rem;
-    }
-
-    .comments {
-      display: inline-block;
-      margin: 20px auto 20px 100px;
-      height: 400px;
-      padding-left: 50px;
-      width: 70%;
-      background-image: url(../static/flower-ga1523848f_1920.jpg);
-      background-size: cover;
-    }
-
-    .rv {
-      margin-top: 20px;
-      margin-left: 100px;
-      margin-bottom: 10px;
-    }
-
-    .txtar {
-      margin-left: 100px;
-      margin-right: 100px;
-    }
-
-    .btn_rv {
-      background-color: black;
-      color: white;
-      margin-left: 100px;
-      border-radius: 5%;
-    }
-
-
-
-    .rev {
-      margin: 50px 0px 0px 100px;
-    }
-
-    .mypost {
-      margin: 10px 0px 0px 100px;
-      width: 90%;
-    }
-
-    .mybtns {
-
-      margin-top: 15px;
-    }
-
-    .button_blog {
-      background-color: #ffed86;
-      border: 0 solid #E5E7EB;
-      box-sizing: border-box;
-      color: #000000;
-      display: flex;
-      font-size: 1rem;
-      font-weight: 700;
-      justify-content: center;
-      line-height: 1.75rem;
-      padding: .75rem 1.65rem;
-      position: relative;
-      text-align: center;
-      text-decoration: none #000000 solid;
-      max-width: 150px;
-      position: relative;
-      cursor: pointer;
-      transform: rotate(-2deg);
-      user-select: none;
-      touch-action: manipulation;
-    }
-
-    .button_blog:focus {
-      outline: 0;
-    }
-
-    .button_blog:after {
-      content: '';
-      position: absolute;
-      border: 1px solid #000000;
-      bottom: 4px;
-      left: 4px;
-      width: calc(100% - 1px);
-      height: calc(100% - 1px);
-    }
-
-    .button_blog:hover:after {
-      bottom: 2px;
-      left: 2px;
-    }
-  </style>
 </head>
 
 <body>
   <div class="titles">
-    <div class="logo">스파르타대학교</div>
-
+    <a href="/" style="text-decoration-line: none">
+      <div class="logo">스파르타대학교</div>
+    </a>
   </div>
   <div class="itduce">
     <div>소개</div>
   </div>
   <div>
     <div class="profile">
-      <img src="../static/LSM.png" class="card-img-top" alt="...">
+      <img src="/static/img/LSM.png" class="card-img-top" alt="...">
     </div>
     <div class="comments">
-      <p><b>
-          <h4>이승민</h4>
-        </b></p>
+      <h4 class="name_blank">{{data.name}}</h4>
       <a href="https://msmscoding.tistory.com/" target="_blink">
         <p class="button_blog">개발일지</p>
       </a>
       <p>inheth2@gmail.com</p>
-      <p><img src="../static/line.png" width="100"></p>
+      <p><img src="/static/img/line.png" width="100"></p>
       <p>영어 외에도 일본어, 독일어 등에 관심이 많습니다.</P>
       <p>원래 저어언혀 다른 분야를 전공했다가 새롭게 코딩에 도전하는 비전공자입니다.</P>
       <p>영화와 소설을 좋아합니다.</p>
@@ -217,72 +80,61 @@
                 <th scope="col">별점</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="review_write">
               <tr>
                 <th scope="row">s2min</th>
                 <td>코딩을 잘 하고 싶습니다!</td>
-                <td>⭐⭐⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <th scope="row">arthur</th>
-                <td>열심히 합니다.</td>
-                <td>⭐⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <th scope="row">abdbj</th>
-                <td>소설 추천해주세요!</td>
                 <td>⭐⭐⭐⭐⭐</td>
               </tr>
             </tbody>
           </table>
         </tbody>
         </b2>
-
+      </b1>
     </div>
   </div>
 </body>
 <script>
   $(document).ready(function () {
     listing();
-    $('#post-box').hide()
   });
 
+  function listing() {
+    let reviewlist = JSON.parse('{{ data1 | tojson}}');
+    $('.review_write').empty()
+    for (let i = 0; i < reviewlist.length; i++) {
+      let name = reviewlist[i]['userID']
+      let comment = reviewlist[i]['Txt_review']
+      let star = reviewlist[i]['StarPoint_review']
+      let star_image = '⭐'.repeat(star)
+
+      let temp_html = `<tr>
+                        <th scope="row">${name}</th>
+                        <td>${comment}</td>
+                        <td>${star_image}</td>
+                      </tr>`
+      $('.review_write').append(temp_html)
+    }
+  }
+
   function posting() {
-    let name = $('#name').val()
-    let star = $('#star').val()
-    let comment = $('#comment').val()
+    let userID = $('#name').val()
+    let StarPoint_review = $('#star').val()
+    let Txt_review = $('#comment').val()
+    let name = $('.name_blank').html()
 
     let formData = new FormData();
+    formData.append("userID_give", userID);
+    formData.append("Txt_review_give", Txt_review);
+    formData.append("StarPoint_review_give", StarPoint_review);
     formData.append("name_give", name);
-    formData.append("star_give", star);
-    formData.append("comment_give", comment);
 
-    fetch('/guestbook', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
-      console.log(data);
+    fetch('/saveReview', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
       alert(data["msg"]);
-      window.location.reload()
+      window.location.reload(true)
     });
   }
-  function show_comment() {
-    fetch('/guestbook').then((res) => res.json()).then((data) => {
-      alert(data["msg"])
-      let rows = data['comments']
-      rows.forEach((a) => {
-        let name = a['name']
-        let comment = a['comment']
-        let star = a['star']
 
-        let star_image = '⭐'.repeat(star)
-
-        let temp_html = `<tr>
-                <th scope="col">${name}</th>
-                <th scope="col">${comment}</th>
-                <th scope="col">${star}</th>
-              </tr>`
-        $('#order-box').append(temp_html)
-      })
-    })
-  }
   function open_box() {
     $('#post-box').show()
   }
