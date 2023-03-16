@@ -55,13 +55,19 @@ html, body {
 }
 
 .spartatext {
+    
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
     height: 500px;
-    font-size: 50px;
+    font-size: 25px;
     background-color: rgba(220, 220, 220, 0.8);
+}
+
+.spartatext > p {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .line1 {
