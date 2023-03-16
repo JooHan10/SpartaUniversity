@@ -71,7 +71,6 @@
     </div>
     <div class="mybtns">
       <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
-      <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
     </div>
 
     <div class="revs">
@@ -91,11 +90,14 @@
       let star = reviewlist[i]['StarPoint_review']
       let star_image = '⭐'.repeat(star)
 
-      let temp_html = `<b1 class="rev">
-                        <p>${name}</p>
-                        <p>${star_image}</p>
-                        <footer class="blockquote-footer">${comment}</footer>
-                      </b1>`
+      let temp_html = `<div class="cardz">
+                      <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                          <p>${comment}</p>
+                          <footer class="blockquote-footer">${name}</footer><td>${star_image}</td>
+                        </blockquote>
+                      </div>
+                    </div>`
       $('.revs').append(temp_html)
     }
   }
@@ -122,9 +124,6 @@
     $('#post-box').show()
   }
 
-  function close_box() {
-    $('#post-box').hide()
-  }
 </script>
 
 </html>
