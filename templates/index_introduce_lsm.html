@@ -118,30 +118,33 @@
   }
 
   function posting() {
-    let userID = $('#name').val()
-    let StarPoint_review = $('#star').val()
-    let Txt_review = $('#comment').val()
-    let name = $('.name_blank').html()
+    if ($('#name').val() == 0 || $('#star').val() == 0 || $('#comment').val() == '-- 선택하기 --') {
+      alert('내용을 입력해주세요.');
+    } else {
+      let userID = $('#name').val()
+      let StarPoint_review = $('#star').val()
+      let Txt_review = $('#comment').val()
+      let name = $('.name_blank').html()
 
-    let formData = new FormData();
-    formData.append("userID_give", userID);
-    formData.append("Txt_review_give", Txt_review);
-    formData.append("StarPoint_review_give", StarPoint_review);
-    formData.append("name_give", name);
+      let formData = new FormData();
+      formData.append("userID_give", userID);
+      formData.append("Txt_review_give", Txt_review);
+      formData.append("StarPoint_review_give", StarPoint_review);
+      formData.append("name_give", name);
 
-    fetch('/saveReview', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
-      alert(data["msg"]);
-      window.location.reload(true)
-    });
-  }
+      fetch('/saveReview', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+        alert(data["msg"]);
+        window.location.reload(true)
+      });
 
-  function open_box() {
-    $('#post-box').show()
-  }
-
-  function close_box() {
-    $('#post-box').hide()
-  }
+      $('.review-dummy').hide();
+      $('#sketch').removeClass('blur');
+      $('#sketch').css("pointer-events", "auto");
+      $('#userNamei').val('');
+      $('#reviewi').val('');
+      $('#reviewStar').val('-- 선택하기 --');
+    }
+  };
 </script>
 
 </html>
