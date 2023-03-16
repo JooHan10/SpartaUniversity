@@ -1,16 +1,14 @@
 @font-face {
     font-family: 'TheJamsil5Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-    font-weight: 700;
+    font-weight: 300;
     font-style: normal;
 }
 
-* {
+*{
     margin: 0px;
     padding: 0px;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: 'TheJamsil5Bold', sans-serif;
+    font-family: 'TheJamsil5Bold';
 }
 
 .wrap {
@@ -22,7 +20,7 @@
     height: 120px;
     background-color: rgba(220, 20, 60, 1);
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
 }
@@ -32,14 +30,11 @@
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-    line-height: 75px;
-
-    font-family: 'TheJamsil5Bold';
 }
 
 .titles > a {
-    color: white;
     text-decoration: none;
+    color: white;
 }
 
 .titles > a:hover {
@@ -52,16 +47,80 @@
     background-color: rgb(230, 228, 230);
     margin: 0px auto 0px auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: gray;
 }
 
+.name_id {
+    color: white;
+}
+
 .profile {
-    background-color: rgb(255, 192, 255);
+    position: relative;
+    background-color: #c7c4ff;
     width: 800px;
     height: 450px;
     margin: 40px auto auto auto;
+    z-index: 7;
+}
 
+.base {
+    position: absolute;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.cat {
+    position: absolute;
+    margin: 15% 0px 0px 20%;
+    transform: rotate(-40deg);
+    z-index: 2;
+}
+
+.pc {
+    position: absolute;
+    margin: 35% 0px 0px 70%;
+    transform: rotate(-40deg);
+    z-index: 3;
+}
+
+.china {
+    position: absolute;
+    margin: 13% 0px 0px 73%;
+    transform: rotate(40deg);
+    z-index: 4;
+}
+
+.guitar {
+    position: absolute;
+    margin: 34% 0px 0px 12%;
+    transform: rotate(40deg);
+    z-index: 5;
+}
+
+.mytext {
+    position: absolute;
+    margin: 30px 0px 0px 38%;
+    z-index: 6;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+
+.mypost {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto auto auto auto;
+}
+
+.revs {
+    width: 26%;
+    margin: 100px auto;
 }
