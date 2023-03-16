@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/static/introduce_ijh.css">
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <title>eres más tonto que las piedras</title>
 </head>
 
@@ -120,8 +121,8 @@
                             <p id="symCnt${i}">0</p>
                           </button>
                           <div class="real_btn">
-                            <button class="amend_btn">수정하기</button>
-                            <button class="del_btn">삭제하기</button>
+                            <button class="amend_btn" onclick="editbtn()">수정하기</button>
+                            <button class="del_btn" onclick="clearbtn()">삭제하기</button>
                           </div>
                         </div>
                       </div>`
@@ -183,6 +184,14 @@
       $('#reviewStar').val('-- 선택하기 --');
     }
   };
+
+  function editbtn() {
+    swal("Not yet.");
+  }
+
+  function clearbtn() {
+    swal("구라징!");
+  }
 
   // function del_review() {
   //   if (confirm("작성자가 맞으십니까?") == true) {

@@ -124,3 +124,11 @@
     width: 26%;
     margin: 100px auto;
 }
+
+.edit-bt {
+    cursor: pointer;
+}
+
+.clear-bt {
+    cursor: pointer;
+}
