@@ -1,19 +1,36 @@
-* {
-    font-family: "Noto Serif KR", serif;
-}
-.titles {
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  * {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+    font-family: 'TheJamsil5Bold';
+  }
+  .titles {
     width: 100%;
-    height: 150px;
-
-    background-color:rgba(237, 96, 96, 1);
-
-    color: white;
-
+    height: 120px;
+    background-color: rgba(220, 20, 60, 1);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 100px; 
-}
+    justify-content: flex-start;
+    padding: 20px;
+  }
+  
+  .logo {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 70px;
+    
+  }
 
 .itduce {
     background-color: rgba(239,245,255,1);
@@ -44,6 +61,7 @@
     margin-top: 20px;
     margin-left: 100px;
     margin-bottom: 10px;
+    font-family: 'TheJamsil5Bold';
 }
 
 .txtar {
@@ -59,7 +77,6 @@
 }
 
 
-
 .rev {
     margin: 50px 0px 0px 100px;
 }
@@ -70,4 +87,13 @@
 .mybtns {
 
     margin-top: 15px;
+}
+.c_name{
+    font-size: 30px;
+    padding: 10px;
+}
+.c_c{
+    font-size: 18px;
+    font-family: 'TheJamsil5Bold';
+    
 }
