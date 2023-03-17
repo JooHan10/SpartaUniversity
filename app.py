@@ -13,8 +13,6 @@ def home():
 #수강목록페이지
 @app.route('/detail')
 def detail():
-    teamlist = db.team.find_one({'name': '팀원'}, {'_id': False})
-    print(teamlist)
     return render_template('index_detail.html')
 
 #팀원 정보 받기
