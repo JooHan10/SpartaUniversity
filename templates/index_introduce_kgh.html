@@ -100,27 +100,6 @@
   });
 
   function listing() {
-    // $.ajax({
-    //   type: 'GET',
-    //   url: '/1/<id>',
-    //   data: {},
-    //   success: function (response) {
-    //     let reviewlist = JSON.parse('{{ data1 | tojson}}');
-    //     // let rows = response['comment']
-    //     $('#cards-box').empty()
-    //     for (let i = 0; i < reviewlist.length; i++) {
-    //       let name = rows[i]['userID']
-    //       let star = rows[i]['StarPoint_review']
-    //       let comment = rows[i]['Txt_review']
-
-    //       let star_image = '⭐'.repeat(star)
-
-    //       let temp_html = ``
-
-    //       $('#cards-box').append(temp_html)
-    //     }
-    //   }
-    // })
     let reviewlist = JSON.parse('{{ data1 | tojson}}');
     $('#cards-box').empty()
     for (let i = 0; i < reviewlist.length; i++) {
@@ -166,22 +145,6 @@
       });
     }
   }
-    
-    // function clearbtn(num) {    
-    //   console.log(num);
-        
-    //   $.ajax({
-    //     type: 'DELETE',
-    //     url: '/del_review/' + num,       
-    //     success: function(data) {
-    //       alert(data["msg"]);
-    //       window.location.reload();
-    //     },
-    //     error: function(data) {
-    //       alert(data["responseText"]);
-    //     }
-    //   });
-    // }
 
   function open_box() {
     $('#post-box').show()

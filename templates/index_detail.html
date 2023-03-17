@@ -61,44 +61,6 @@
         listing();
     });
 
-    // function listing() {
-    //     fetch('/teamSU').then((res) => res.json()).then((data) => {
-    //         let rows = data['team']
-    //         console.log(rows[0]['name'])
-    //         $('.cont_box').empty()
-    //         rows.forEach((a) => {
-    //             let number = a['num']
-    //             let name = a['name']
-    //             let favorite_language = a['favlang']
-    //             let position = a['posi']
-    //             let tmi = a['tmi']
-    //             let comment = a['comment']
-    //             let temp_html = `<ul class="cont_main">
-    //                                 <li class="row1">
-    //                                     <p>${number}</p>
-    //                                 </li>
-    //                                 <li class="row2">
-    //                                     <p>${name}</p>
-    //                                 </li>
-    //                                 <li class="row3">
-    //                                     <p>${favorite_language}</p>
-    //                                 </li>
-    //                                 <li class="row4">
-    //                                     <p>${position}</p>
-    //                                 </li>
-    //                                 <li class="row5">
-    //                                     <p>${tmi}</p>
-    //                                 </li>
-    //                                 <li class="row6">
-    //                                     <p>${comment}</p>
-    //                                     <button class="det_button"><a href="/intro1/${name}">평가</a></button>
-    //                                 </li>
-    //                             </ul>`
-    //             $('.cont_box').append(temp_html);
-    //         });
-    //     });
-    // };
-
     function listing() {
         fetch('/teamSU').then((res) => res.json()).then((data) => {
             let rows = data['team']
